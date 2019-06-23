@@ -16,6 +16,24 @@ public class Box {
         this.depth = depth;
     }
 
+    Box(double width, double heigh) {
+        this.width = width;
+        this.height = heigh;
+        this.depth = 1.0;
+    }
+
+    Box(double width) {
+        this.width = width;
+        height = 1.0;
+        depth = 1.0;
+    }
+
+    Box() {
+        width = -1; // use -1 to indicate an uninitialized box
+        height = -1;
+        depth = -1;
+    }
+
     // compute and return volume
     double volume() {
         return width * height * depth;
