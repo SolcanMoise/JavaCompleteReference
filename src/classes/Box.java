@@ -9,6 +9,13 @@ public class Box {
     double height;
     double depth;
 
+    // define a constructor
+    Box(double width, double height, double depth) {
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
+    }
+
     // compute and return volume
     double volume() {
         return width * height * depth;
@@ -22,16 +29,10 @@ class BoxDemo {
 
     public static void main(String[] args) {
         Box myBox; // declare reference to object
-        myBox = new Box(); // allocate a box object
-        myBox.width = 10;
-        myBox.height = 20;
-        myBox.depth = 15;
+        myBox = new Box(10, 20, 15); // allocate a box object
 
         // create a new Object of type Box
-        Box newBox = new Box();
-        newBox.width = 3;
-        newBox.height = 6;
-        newBox.depth = 9;
+        Box newBox = new Box(3, 6, 9);
 
         // compute volume of first object
         double myObjVol = myBox.volume();
