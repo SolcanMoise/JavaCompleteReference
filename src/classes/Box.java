@@ -9,6 +9,10 @@ public class Box {
     double height;
     double depth;
 
+    // compute and return volume
+    double volume() {
+        return width * height * depth;
+    }
 }
 
 /**
@@ -23,12 +27,19 @@ class BoxDemo {
         myBox.height = 20;
         myBox.depth = 15;
 
-        // compute volume of box
-        double volume;
-        volume = myBox.width * myBox.height * myBox.depth;
-        System.out.println("Volume is " + volume);
+        // create a new Object of type Box
+        Box newBox = new Box();
+        newBox.width = 3;
+        newBox.height = 6;
+        newBox.depth = 9;
 
+        // compute volume of first object
+        double myObjVol = myBox.volume();
+        System.out.println("Volume of myBox = "+ myObjVol);
 
+        // compute volume for the second object
+        myObjVol = newBox.volume();
+        System.out.println("Volume of newBox = "+ myObjVol);
     }
 
 }
