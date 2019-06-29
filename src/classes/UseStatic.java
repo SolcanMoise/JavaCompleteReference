@@ -12,8 +12,9 @@ class UseStatic {
 
     private static int a = 3;
     private static int b;
+    private static final int c = 9; // declaring c as a constant
 
-    static void showData(int c) {
+    static void showData() {
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
@@ -29,7 +30,7 @@ class UseStatic {
 class StaticByName {
 
     public static void main(String[] args) {
-        UseStatic.showData(9);
+        UseStatic.showData();
     }
 
 }
