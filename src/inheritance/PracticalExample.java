@@ -61,7 +61,9 @@ class BoxWeight extends Box {
     }
 
     BoxWeight() {
-        super();
+        super.height = -1; // height in Box
+        super.width = -1;
+        super.depth = -1;
         weight = -1;
     }
 
