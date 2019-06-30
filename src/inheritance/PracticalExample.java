@@ -51,9 +51,22 @@ class BoxWeight extends Box {
     double weight;
 
     BoxWeight(double width, double height, double depth, double weight) {
-        this.width = width;
-        this.height = height;
-        this.depth = depth;
+        super(width, height, depth); // call superclass constructor
+        this.weight = weight;
+    }
+
+    BoxWeight(BoxWeight ob) {
+        super(ob);
+        weight = ob.weight;
+    }
+
+    BoxWeight() {
+        super();
+        weight = -1;
+    }
+
+    BoxWeight(double length, double weight) {
+        super(length);
         this.weight = weight;
     }
 
