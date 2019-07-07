@@ -1,7 +1,7 @@
 package threads;
 
 class ThreadN implements Runnable{
-    private Thread t;
+    Thread t;
     private String name;
 
     ThreadN(String name) {
@@ -32,15 +32,27 @@ class ThreadN implements Runnable{
 public class Threads {
 
     public static void main(String[] args) {
-        new ThreadN("One");
-        new ThreadN("Two");
-        new ThreadN("Three");
+        ThreadN ob1 = new ThreadN("One");
+        ThreadN ob2 = new ThreadN("Two");
+        ThreadN ob3 = new ThreadN("Three");
 
+        System.out.println("Thread One is alive: " + ob1.t.isAlive());
+        System.out.println("Thread Two is alive: " + ob2.t.isAlive());
+        System.out.println("Thread Three is alive: " + ob3.t.isAlive());
+
+        // wait for threads to finish
         try {
-            Thread.sleep(10000);
+            System.out.println("Waiting for threads to finish.");
+            ob1.t.join();
+            ob2.t.join();
+            ob3.t.join();
         } catch (InterruptedException e) {
             System.out.println("Main thread interrupted");
         }
+
+        System.out.println("Thread One is alive: " + ob1.t.isAlive());
+        System.out.println("Thread Two is alive: " + ob2.t.isAlive());
+        System.out.println("Thread Three is alive: " + ob3.t.isAlive());
 
         System.out.println("Main thread exiting");
     }
