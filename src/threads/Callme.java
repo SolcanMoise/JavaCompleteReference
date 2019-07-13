@@ -1,13 +1,13 @@
 package threads;
 
 /**
- * This program is not synchronized
+ * This program is synchronized
  */
 public class Callme {
 
-    void call(String msg) {
+    synchronized void call(String msg) {
 
-        System.out.println("[" + msg);
+        System.out.print("[" + msg);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
