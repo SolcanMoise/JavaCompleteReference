@@ -2,7 +2,7 @@ package threads;
 
 
 /**
- * An incorrect implementation of a producer and consumer.
+ * A correct implementation of a producer and consumer.
  */
 public class ProducerConsumerDemo {
 
@@ -12,7 +12,6 @@ public class ProducerConsumerDemo {
         new Producer(q);
         new Consumer(q);
 
-        System.out.println("Press Ctrl+C to stop.");
     }
 
 }
@@ -20,15 +19,34 @@ public class ProducerConsumerDemo {
 class Q {
 
     int n;
+    boolean valueSet = false;
 
     synchronized int get() {
+        while(!valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        valueSet = false;
         System.out.println("Got:" + n);
+        notify();
         return n;
     }
 
     synchronized void put(int n) {
+        while(valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         this.n = n;
+        valueSet = true;
         System.out.println("Put: " + n);
+        notify();
     }
 
 }
