@@ -13,7 +13,13 @@ class EnumDemo {
 
         Apple ap;
 
-        ap = Apple.Jonatan;
+        // get list of all Apple enum constants
+        Apple all[] = Apple.values();
+        for (Apple a:all) {
+            System.out.println("List: " + a);
+        }
+
+        ap = Apple.valueOf("Jonatan");
 
         // output an enum value
         System.out.println("Value of ap is: " + ap);
