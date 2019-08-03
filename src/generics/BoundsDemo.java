@@ -33,4 +33,10 @@ class Stats<T extends Number> {
 
         return sum / nums.length;
     }
+
+    // Determine if two averages are the same
+    // Notice the use of the wildcard.
+    boolean sameAvg(Stats<?> ob) {
+        return average() == ob.average();
+    }
 }
